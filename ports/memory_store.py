@@ -1,9 +1,9 @@
-from abc import ABC, abstractmethod  # Import abstract-base-class tools so Python can express a memory-storage contract.
+from abc import ABC, abstractmethod  # Import abstract-base-class helpers so Python can express a memory-storage contract.
 
-class MemoryStore(ABC):  # Define the contract that every persistent-memory adapter must satisfy.
-    @abstractmethod  # Mark load as mandatory for concrete memory-store implementations.
-    def load(self):  # Declare the operation that retrieves previously stored workflow events.
-        raise NotImplementedError  # Prevent the abstract port from choosing a storage technology.
-    @abstractmethod  # Mark append as mandatory for concrete memory-store implementations.
-    def append(self, event):  # Declare the operation that stores one new workflow event.
-        raise NotImplementedError  # Prevent the abstract port from implementing persistence itself.
+class MemoryStore(ABC):  # Define the contract used to persist and retrieve agent memory events.
+    @abstractmethod  # Require every concrete memory adapter to implement load.
+    def load(self):  # Declare the operation that returns previously persisted memory messages.
+        raise NotImplementedError  # Keep storage technology out of the abstract interface.
+    @abstractmethod  # Require every concrete memory adapter to implement append.
+    def append(self, event, request_id=None):  # Declare the operation that stores one memory event and optionally links it to a request.
+        raise NotImplementedError  # Keep database-specific behavior out of the abstract interface.
