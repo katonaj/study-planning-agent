@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
-week5_memory.json
+week*_memory.json
+*.db
+*.db-shm
+*.db-wal
