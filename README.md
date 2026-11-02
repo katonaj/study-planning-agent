@@ -14,78 +14,77 @@ The project is developed incrementally. Each laboratory adds software engineerin
 
 ```text
 study-planning-agent/
-|-- README.md
-|-- .gitignore
-|-- __init__.py
-|-- run.py
-|-- lab_agent.py
-|-- inspect_database.py
-|-- agent_memory.json
-|-- agent_output.txt
-|
-|-- db/
-|   `-- schema.sql
-|
-|-- domain/
-|   |-- __init__.py
-|   `-- models.py
-|
-|-- ports/
-|   |-- __init__.py
-|   |-- calendar_port.py
-|   |-- memory_store.py
-|   `-- study_repository.py
-|
-|-- adapters/
-|   |-- __init__.py
-|   |-- fake_calendar.py
-|   |-- sqlite_database.py
-|   |-- sqlite_memory.py
-|   `-- sqlite_repository.py
-|
-|-- agent/
-|   |-- __init__.py
-|   |-- states.py
-|   |-- planner.py
-|   `-- orchestrator.py
-|
-|-- docs/
-|   |-- requirements.md
-|   |-- stakeholders.md
-|   |-- use-cases.md
-|   |-- user-stories.md
-|   |
-|   |-- models/
-|   |   |-- README.md
-|   |   |-- class-diagram.md
-|   |   |-- database-diagram.md
-|   |   |-- object-diagram.md
-|   |   |-- package-diagram.md
-|   |   `-- use-case-diagram.md
-|   |
-|   |-- behavior/
-|   |   |-- README.md
-|   |   |-- activity-diagram.md
-|   |   |-- sequence-diagram.md
-|   |   `-- state-machine-diagram.md
-|   |
-|   |-- architecture/
-|   |   |-- README.md
-|   |   |-- system-architecture.md
-|   |   |-- interfaces.md
-|   |   |-- agent-architecture.md
-|   |   `-- architecture-decisions.md
-|   |
-|   `-- data-model/
-|       |-- README.md
-|       |-- conceptual-model.md
-|       |-- relational-schema.md
-|       |-- normalization.md
-|       |-- mapping.md
-|       `-- queries.md
-|
-`-- notes/
-    `-- week1.md
+├── README.md
+├── .gitignore
+├── run.py
+├── inspect_database.py
+├── lab_agent.py
+├── agent_memory.json
+├── agent_output.txt
+├── __init__.py
+├── notes/
+│   └── week1.md
+├── db/
+│   └── schema.sql
+├── domain/
+│   ├── __init__.py
+│   └── models.py
+├── ports/
+│   ├── __init__.py
+│   ├── calendar_port.py
+│   ├── memory_store.py
+│   └── study_repository.py
+├── adapters/
+│   ├── __init__.py
+│   ├── fake_calendar.py
+│   ├── sqlite_database.py
+│   ├── sqlite_memory.py
+│   └── sqlite_repository.py
+├── agent/
+│   ├── __init__.py
+│   ├── orchestrator.py
+│   ├── planner.py
+│   └── states.py
+└── docs/
+    ├── stakeholdres.md
+    ├── requirements.md
+    ├── user-stories.md
+    ├── use-cases.md
+    ├── models/
+    │   ├── README.md
+    │   ├── class-diagram.md
+    │   ├── database-diagram.md
+    │   ├── object-diagram.md
+    │   ├── package-diagram.md
+    │   └── use-case-diagram.md
+    ├── behavior/
+    │   ├── README.md
+    │   ├── activity-diagram.md
+    │   ├── sequence-diagram.md
+    │   └── state-machine-diagram.md
+    ├── architecture/
+    │   ├── README.md
+    │   ├── agent-architecture.md
+    │   ├── architecture-decisions.md
+    │   ├── interfaces.md
+    │   └── system-architecture.md
+    ├── data-model/
+    │   ├── README.md
+    │   ├── conceptual-model.md
+    │   ├── mapping.md
+    │   ├── normalization.md
+    │   ├── queries.md
+    │   └── relational-schema.md
+    └── project-management/
+        ├── README.md
+        ├── daily-scrum-log.md
+        ├── definition-of-done.md
+        ├── product-backlog.md
+        ├── retrospective.md
+        ├── sprint-board.md
+        ├── sprint-plan.md
+        ├── sprint-review.md
+        └── xp-tdd-notes.md
 ```
 
 ## Week 2 - Requirements Engineering
