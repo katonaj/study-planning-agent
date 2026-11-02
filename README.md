@@ -108,6 +108,14 @@ Week 5 refactors the behavioral prototype into a small modular architecture. The
 
 Week 6 maps the Study Planning Agent domain model to a normalized relational schema and adds an executable SQLite persistence adapter. Students, assignments, plans and plan items are stored as business data. Planning-request state, memory events and calendar tool calls demonstrate persistence for agent workflows.
 
+## Week 8 - Scrum Planning and Project Governance
+- Planning artefacts: `docs/project-management/README.md` (index plus eight detailed Markdown files).
+- Scope: Scrum planning and simulated iteration; no new production Python feature in Week 8.
+- Sprint Goal: improve transparency, missing-deadline handling, and shareability.
+- Selected: PB-01 (5 SP), PB-02 (3 SP), PB-03 (5 SP); 13 SP capacity.
+- Final simulated board: 6 Done, 1 In Review, 1 In Progress; PB-03 is unfinished.
+- Existing SQLite application remains the working technical baseline.
+
 ## Application Status
 
 The executable `lab_agent.py` application is unchanged from Week 1. Week 2 changes the specification and project documentation, not the implementation.
@@ -121,4 +129,5 @@ The executable `lab_agent.py` application is unchanged from Week 1. Week 2 chang
 - Week 5: completed - architectural decomposition and interfaces
 - Week 6: completed - conceptual data model, relational design, normalization and SQLite persistence
 - Week 7: next - coding standards, code review, branching and traceability
-
+- Week 8: completed - Scrum sprint planning, Product Backlog, Sprint Board, simulated Daily Scrum, Sprint Review, Retrospective, and XP/TDD overview
+- Week 9: next - SOLID principles, design patterns and agent tool abstractions
