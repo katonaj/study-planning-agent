@@ -14,29 +14,10 @@ The project is developed incrementally. Each laboratory adds software engineerin
 
 ```text
 study-planning-agent/
-├── README.md
-├── .gitignore
-├── run.py
-├── inspect_database.py
-├── lab_agent.py
-├── agent_memory.json
-├── agent_output.txt
-├── __init__.py
-├── notes/
-│   └── week1.md
-├── db/
-│   └── schema.sql
-├── domain/
-│   ├── __init__.py
-│   └── models.py
-├── ports/
-│   ├── __init__.py
-│   ├── calendar_port.py
-│   ├── memory_store.py
-│   └── study_repository.py
 ├── adapters/
 │   ├── __init__.py
 │   ├── fake_calendar.py
+│   ├── logging_calendar.py
 │   ├── sqlite_database.py
 │   ├── sqlite_memory.py
 │   └── sqlite_repository.py
@@ -45,46 +26,75 @@ study-planning-agent/
 │   ├── orchestrator.py
 │   ├── planner.py
 │   └── states.py
-└── docs/
-    ├── stakeholdres.md
-    ├── requirements.md
-    ├── user-stories.md
-    ├── use-cases.md
-    ├── models/
-    │   ├── README.md
-    │   ├── class-diagram.md
-    │   ├── database-diagram.md
-    │   ├── object-diagram.md
-    │   ├── package-diagram.md
-    │   └── use-case-diagram.md
-    ├── behavior/
-    │   ├── README.md
-    │   ├── activity-diagram.md
-    │   ├── sequence-diagram.md
-    │   └── state-machine-diagram.md
-    ├── architecture/
-    │   ├── README.md
-    │   ├── agent-architecture.md
-    │   ├── architecture-decisions.md
-    │   ├── interfaces.md
-    │   └── system-architecture.md
-    ├── data-model/
-    │   ├── README.md
-    │   ├── conceptual-model.md
-    │   ├── mapping.md
-    │   ├── normalization.md
-    │   ├── queries.md
-    │   └── relational-schema.md
-    └── project-management/
-        ├── README.md
-        ├── daily-scrum-log.md
-        ├── definition-of-done.md
-        ├── product-backlog.md
-        ├── retrospective.md
-        ├── sprint-board.md
-        ├── sprint-plan.md
-        ├── sprint-review.md
-        └── xp-tdd-notes.md
+├── db/
+│   └── schema.sql
+├── docs/
+│   ├── architecture/
+│   │   ├── agent-architecture.md
+│   │   ├── architecture-decisions.md
+│   │   ├── interfaces.md
+│   │   ├── README.md
+│   │   └── system-architecture.md
+│   ├── behavior/
+│   │   ├── activity-diagram.md
+│   │   ├── README.md
+│   │   ├── sequence-diagram.md
+│   │   └── state-machine-diagram.md
+│   ├── data-model/
+│   │   ├── conceptual-model.md
+│   │   ├── mapping.md
+│   │   ├── normalization.md
+│   │   ├── queries.md
+│   │   ├── README.md
+│   │   └── relational-schema.md
+│   ├── design-patterns/
+│   │   ├── code-review-checklist.md
+│   │   ├── patterns.md
+│   │   ├── README.md
+│   │   ├── solid-review.md
+│   │   └── traceability.md
+│   ├── models/
+│   │   ├── class-diagram.md
+│   │   ├── database-diagram.md
+│   │   ├── object-diagram.md
+│   │   ├── package-diagram.md
+│   │   ├── README.md
+│   │   └── use-case-diagram.md
+│   ├── project-management/
+│   │   ├── daily-scrum-log.md
+│   │   ├── definition-of-done.md
+│   │   ├── product-backlog.md
+│   │   ├── README.md
+│   │   ├── retrospective.md
+│   │   ├── sprint-board.md
+│   │   ├── sprint-plan.md
+│   │   ├── sprint-review.md
+│   │   └── xp-tdd-notes.md
+│   ├── requirements.md
+│   ├── stakeholdres.md
+│   ├── use-cases.md
+│   └── user-stories.md
+├── domain/
+│   ├── __init__.py
+│   └── models.py
+├── factories/
+│   ├── __init__.py
+│   └── calendar_factory.py
+├── notes/
+│   └── week1.md
+├── ports/
+│   ├── __init__.py
+│   ├── calendar_port.py
+│   ├── memory_store.py
+│   └── study_repository.py
+├── .gitignore
+├── __init__.py
+├── agent_memory.json
+├── agent_output.txt
+├── inspect_database.py
+├── lab_agent.py
+├── README.md
+└── run.py
 ```
 
 ## Week 2 - Requirements Engineering
@@ -115,6 +125,11 @@ Week 6 maps the Study Planning Agent domain model to a normalized relational sch
 - Final simulated board: 6 Done, 1 In Review, 1 In Progress; PB-03 is unfinished.
 - Existing SQLite application remains the working technical baseline.
 
+## Week 9 - SOLID Refactoring and Design Patterns
+Week 9 refactors calendar-provider construction into `factories/calendar_factory.py` and adds tool-call logging through `adapters/logging_calendar.py`. `run.py` selects the configured provider, wraps it with `LoggingCalendarDecorator`, and injects the resulting `CalendarPort` into the existing orchestrator. The domain model, agent goal, and SQLite schema remain unchanged.
+ 
+Documentation and engineering evidence: [`docs/design-patterns/README.md`](docs/design-patterns/README.md). The Week 9 branch is `week9-solid-patterns`; merge it into `main` after verifying success, controlled failure, missing-input, and persistence scenarios.
+
 ## Application Status
 
 The executable `lab_agent.py` application is unchanged from Week 1. Week 2 changes the specification and project documentation, not the implementation.
@@ -129,4 +144,5 @@ The executable `lab_agent.py` application is unchanged from Week 1. Week 2 chang
 - Week 6: completed - conceptual data model, relational design, normalization and SQLite persistence
 - Week 7: next - coding standards, code review, branching and traceability
 - Week 8: completed - Scrum sprint planning, Product Backlog, Sprint Board, simulated Daily Scrum, Sprint Review, Retrospective, and XP/TDD overview
-- Week 9: next - SOLID principles, design patterns and agent tool abstractions
+- Week 9: completed - SOLID refactoring, Factory/Adapter/Decorator design patterns, and regression verification
+- Week 10: next - automated testing, TDD, and agent evaluation
